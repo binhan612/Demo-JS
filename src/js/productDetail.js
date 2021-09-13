@@ -12,6 +12,7 @@ const getProductDetail = async () => {
         },
     });
     const data = response.data;
+    console.log(data);
 
     renderProductDetail(data[0]);
 };
@@ -46,7 +47,7 @@ const renderProductDetail = ({ id, src, slideImages, nameProduct, rate, currentP
 
 const handleAddCart = (id, src, nameProduct, currentPrice) => {
     let product = { id, src, nameProduct, currentPrice, amount: 1 };
-    let productStorage = JSON.parse(localStorage.getItem("product"));
+    let productStorage = JSON.parse(localStorage.getItem("product")) || [];
 
     if (productStorage) {
         let findId = productStorage.find((item) => item.id === id);

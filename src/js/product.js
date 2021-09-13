@@ -10,7 +10,7 @@ const handleChangeSelect = (e) => {
     let value = e.target.value;
     if (e.target.name === "show") limit = parseInt(value);
     else sort = value;
-    renderPagination({});
+    renderPagination({limit, sort, ...(typeProduct && { typeProduct }), ...(rangePrice && { rangePrice })});
     getProductList({ page: 1, limit, sort, ...(typeProduct && { typeProduct }), ...(rangePrice && { rangePrice }) });;
 };
 
